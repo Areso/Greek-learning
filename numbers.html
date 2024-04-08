@@ -1,0 +1,235 @@
+<html>
+  <head>
+    <title>
+      Greek learning: exercises and cards
+    </title>
+  </head>
+  <body>
+    <div id="div_question"></div><br>
+    <input type="text" id="user_response"><br><br>
+    <div id="divCheckResult" ></div><br>
+    <div id="divCorrectAnswer" style="visibility: hidden;"></div><br>
+    <br>
+    <button onclick="check()">Check</button>
+    <button onclick="showCorrectAnswer()">Show correct answer</button>
+    <button onclick="nextCard()">Next one</button>
+  </body>
+  <script>
+    //from zero to 101
+    var curQuestionAnswer = 0;
+    function showCorrectAnswer(){
+        document.getElementById("divCorrectAnswer").innerHTML=curQuestionAnswer;
+        document.getElementById("divCorrectAnswer").style.visibility = "visible";
+    }
+    function nextCard(){
+      const number_to_ask = Math.floor(Math.random() * 102);
+      //const number_to_ask = 16;
+      curQuestionAnswer   = number_to_ask;
+      let   question      = ""
+      let   randomValue = 0
+      switch (number_to_ask) {
+        case 0:
+          question = "μηδέν";
+          break;
+        case 101:
+          question = "εκατόν ένα";
+          break;
+        case 100:
+          question = "εκατόν ένα";
+          break;
+        case 1:
+          question = "ένα";
+          break;
+        case 2:
+          question = "δύο";
+          break;
+        case 3:
+          question = "τρία";
+          break;
+        case 4:
+          question = "τέσσερα";
+          break;
+        case 5:
+          question = "πέντε";
+          break;
+        case 6:
+          question = "έξι";
+          break;
+        case 7:
+          randomValue = Math.floor(Math.random() * 1) + 1;
+          if (randomValue===0){
+            question = "επτά";
+          }
+          if (randomValue===1){
+            question = "εφτά";
+          }
+          break;
+        case 8:
+          randomValue = Math.floor(Math.random() * 1) + 1;
+          if (randomValue===0){
+            question = "οκτώ";
+          }
+          if (randomValue===1){
+            question = "οχτώ";
+          }
+          break;
+        case 9:
+          randomValue = Math.floor(Math.random() * 1) + 1;
+          if (randomValue===0){
+            question = "εννέα";
+          }
+          if (randomValue===1){
+            question = "εννιά";
+          }
+          break;
+        case 10:
+          question = "δέκα";
+          break;
+        case 11:
+          question = "έντεκα";
+          break;
+        case 12:
+          question = "δώδεκα";
+          break;
+        case 13:
+          question = "δεκατρία";
+          break;
+        case 14:
+          question = "δεκατέσσερα";
+          break;
+        case 15:
+          question = "δεκαπέντε";
+          break;
+        case 16:
+          randomValue = Math.round(Math.random() * 1);
+          if (randomValue===0){
+            question = "δεκαέξι";
+          }
+          if (randomValue===1){
+            question = "δεκάξι";
+          }
+          break;
+        case 17:
+          randomValue = Math.floor(Math.random() * 1) + 1;
+          if (randomValue===0){
+            question = "δεκαεπτά";
+          }
+          if (randomValue===1){
+            question = "δεκαεφτά";
+          }
+          break;
+        case 18:
+          randomValue = Math.floor(Math.random() * 1) + 1;
+          if (randomValue===0){
+            question = "δεκαοκτώ";
+          }
+          if (randomValue===1){
+            question = "δεκαοχτώ";
+          }
+          break;
+        case 19:
+          randomValue = Math.floor(Math.random() * 1) + 1;
+          if (randomValue===0){number_to_ask
+            question = "δεκαεννέα";
+          }
+          if (randomValue===1){
+            question = "δεκαεννιά";
+          }
+          break;
+        default:
+          let numberString    = number_to_ask.toString();
+          let numberTens      = parseInt(numberString.charAt(numberString.length - 2));
+          let numberOnes      = parseInt(numberString.charAt(numberString.length - 1));
+          switch (numberTens) {
+            case 2:
+              question += "είκοσι";
+              break;
+            case 3:
+              question += "τριάντα";
+              break;
+            case 4:
+              question += "σαράντα";
+              break;
+            case 5:
+              question += "πενήντα";
+              break;
+            case 6:
+              question += "εξήντα";
+              break;
+            case 7:
+              question += "εβδομήντα";
+              break;
+            case 8:
+              question += "ογδόντα";
+              break;
+            case 9:
+              question += "ενενήντα";
+              break;
+          }
+          if (numberOnes == 0){
+            break;
+          }
+          question += " "
+          switch (numberOnes) {
+            case 1:
+              question += "ένα";
+              break;
+            case 2:
+              question += "δύο";
+              break;
+            case 3:
+              question += "τρία";
+              break;
+            case 4:
+              question += "τέσσερα";
+              break;
+            case 5:
+              question += "πέντε";
+              break;
+            case 6:
+              question += "έξι";
+              break;
+            case 7:
+              randomValue = Math.floor(Math.random() * 1) + 1;
+              if (randomValue===0){
+                question += "επτά";
+              }
+              if (randomValue===1){
+                question += "εφτά";
+              }
+              break;
+            case 8:
+              randomValue = Math.floor(Math.random() * 1) + 1;
+              if (randomValue===0){
+                question += "οκτώ";
+              }
+              if (randomValue===1){
+                question += "οχτώ";
+              }
+              break;
+            case 9:
+              randomValue = Math.floor(Math.random() * 1) + 1;
+              if (randomValue===0){
+                question += "εννέα";
+              }
+              if (randomValue===1){
+                question += "εννιά";
+              }
+              break;
+          };
+      };
+      document.getElementById("div_question").innerHTML=question;
+      document.getElementById("divCorrectAnswer").style.visibility = "hidden";
+      document.getElementById("divCheckResult").innerHTML="";
+    }
+    nextCard();
+    function check(){
+      userAnswer = parseInt(document.getElementById("user_response").value);
+      if (userAnswer === curQuestionAnswer) {
+        document.getElementById("divCheckResult").innerHTML="CORRECT";
+      } else {
+        document.getElementById("divCheckResult").innerHTML="NOT CORRECT";
+      }
+    }
+  </script>
+</html>
