@@ -31,7 +31,7 @@ cards = [
   {"en_t": "Where are you from?",
    "gr_f": "Εσείς από πού είστε;",
    "gr_q": "... (you, f) από πού είστε;",
-   "gr_a": "Εσείς"}
+   "gr_a": "Εσείς"},
 ]
 let current_card = 0
 function nextCard(){
