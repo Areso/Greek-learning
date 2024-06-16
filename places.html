@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      Greek learning: exercises and cards
+    </title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  </head>
+  <body>
+    <div id="div_question"></div><br>
+    <br>
+    <button onclick="nextCard()">Next one</button>
+  </body>
+  <script>
+    function nextCard(){
+    mycards            = cards.filter(acard => { return acard.level == 0; });
+    const lenCards     = mycards.length;
+    const card_number_to_ask = Math.floor(Math.random() * lenCards);
+    current_card       = card_number_to_ask;
+    const lenConstructs= mycards[card_number_to_ask].constructions.length;
+    const constrId     = Math.floor(Math.random() * lenConstructs);
+    const constrName   = mycards[card_number_to_ask].constructions[constrId];
+    const lenExamples  = mycards[card_number_to_ask].en_ex[constrId][constrName].length;
+    const exampledId   = Math.floor(Math.random() * lenExamples);
+    let   theText      = mycards[card_number_to_ask].gr+"<br><br>";
+    theText           += mycards[card_number_to_ask].en+"<br><br>";
+    theText           += cards[card_number_to_ask].gr_ex[constrId][constrName][exampledId]+"<br>";
+    theText           += cards[card_number_to_ask].en_ex[constrId][constrName][exampledId]+"<br><br>";
+    if (mycards[card_number_to_ask].ctable.length>0){
+        lenConj        = mycards[card_number_to_ask].ctable[constrId][constrName].length;
+        conjPos        = 0;
+        console.log(lenConj)
+        if (lenConj !== 0) {
+            console.log("check conj table is not blank")
+            while (conjPos<lenConj){
+            console.log("populate conj table")
+            theText     += personas[conjPos]+" "+ cards[card_number_to_ask].ctable[constrId][constrName][conjPos]+"<br>";
+            conjPos     += 1;
+            }
+        }
+    }
+    document.getElementById("div_question").innerHTML=theText;
+    }
+    //nextCard();
+  </script>
+  <script src="cards_places.js"></script>
+</html>
