@@ -13,7 +13,14 @@
   </body>
   <script>
     function nextCard(){
-    const mycards      = cards.filter(acard => { return acard.level == 0; });
+      const queryString = window.location.search;
+      const urlParams   = new URLSearchParams(queryString);
+      if (urlParams.has('level')) {
+        minDesirableLvl = urlParams.get('level');
+      } else {
+        minDesirableLvl = 0;
+      }
+    const mycards      = cards.filter(acard => { return acard.level >= minDesirableLvl; });
     const lenCards     = mycards.length;
     const card_number_to_ask = Math.floor(Math.random() * lenCards);
     current_card       = card_number_to_ask;
