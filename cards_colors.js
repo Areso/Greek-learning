@@ -74,7 +74,45 @@ cards = [
    ],
    "ctable": [
    ],
-   "img":"decks/tom.jpg"},
-
+   "img":"decks/white.jpg"},
+   {"gr": "το λευκό / το άσπρος",
+    "en": "the white",
+    "level": 0,
+    "constructions": ["present"],
+    "gr_ex": [
+     {"present":["το λευκό / άσπρο σπίτι",
+                 "το λευκό / άσπρο μάθημα",
+                 "το λευκό / άσπρο θέατρο",
+                 "το λευκό / άσπρο κυλί",
+                 "ο λευκός / άσπρος δρόμος",
+                 "ο λευκός",
+                 "ο λευκός / άσπρος πατέρας",
+                 "ο λευκός / άσπρος θεός",
+                 "η λευκή / άσπρή γυναίκα",
+                 "η λευκή / άσπρή Ελένη",
+                 "η λευκή / άσπρή μητέρα",
+                 "η λευκή / άσπρή θεά",
+                 "το λευκό κρασί"
+     ]},
+    ],
+    "en_ex": [
+     {"present":["the white home",
+                 "the white lesson",
+                 "the white theater",
+                 "the white dog",
+                 "the white road",
+                 "the white man",
+                 "the white father",
+                 "the white god",
+                 "the white woman",
+                 "the white Helen",
+                 "the white mother",
+                 "the white goddess",
+                 "the white wine"
+     ]},
+    ],
+    "ctable": [
+    ],
+    "img":"decks/white.jpg"},
  ]
 nextCard();
