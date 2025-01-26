@@ -1755,7 +1755,7 @@ function nextCard(){
   const lenExamples        = cards[card_number_to_ask].en_ex[constrId][constrName].length;
   const exampledId         = Math.floor(Math.random() * lenExamples);
     
-  if (type==="memorize"){
+  if (lesson_type==="memorize"){
     let   theText  = cards[card_number_to_ask].gr+"<br><br>";
     theText       += cards[card_number_to_ask].en+"<br><br>";
     theText       += cards[card_number_to_ask].gr_ex[constrId][constrName][exampledId]+"<br>";
@@ -1778,7 +1778,7 @@ function nextCard(){
     }
     document.getElementById("div_question").innerHTML=theText;
   }
-  if (type==="practice") {
+  if (lesson_type==="practice") {
     document.getElementById("answer").value = "";
     document.getElementById("result_or_correct_answer").innerHTML="";
     lenConj        = cards[card_number_to_ask].ctable[constrId][constrName].length;
