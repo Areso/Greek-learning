@@ -25,9 +25,19 @@
   </head>
   <body>
     <div id="div_question" class="center-horizontal"></div><br>
+    <div class="center-horizontal">
+      <input type="text" id="answer" class="center-horizontal"><br>
+    </div>
+    <div class="center-horizontal">
+      <label id="result_or_correct_answer" ></label>
+    </div>
     <br>
-    <button onclick="nextCard()" class="center-button">Next one</button>
+    <div class="center-horizontal">
+      <button onclick="showCorrect()" style="margin-right: 20px;">Show correct</button>
+      <button onclick="check()"       style="margin-right: 20px;">Check</button>
+      <button onclick="nextCard()"    style="margin-right: 20px;">Next one</button>
+    </div>
   </body>
-  <script>type="memorize"</script>
+  <script>type="practice"</script>
   <script src="verbs_to_learn.js"></script>
 </html>
