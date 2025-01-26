@@ -1779,6 +1779,7 @@ function nextCard(){
     document.getElementById("div_question").innerHTML=theText;
   }
   if (type==="practice") {
+    document.getElementById("answer").value = "";
     document.getElementById("result_or_correct_answer").innerHTML="";
     lenConj        = cards[card_number_to_ask].ctable[constrId][constrName].length;
     if (lenConj === 0) {
