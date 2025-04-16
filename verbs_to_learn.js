@@ -1683,3 +1683,4 @@ function showCorrect() {
   resDiv.innerHTML = correctAnswer;
 }
 nextCard();
+mytimer = setInterval(nextCard, 20000);
