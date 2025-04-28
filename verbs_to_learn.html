@@ -36,6 +36,17 @@
           console.log('Wake Lock is active!');
         } else {
           console.log('Wake Lock API not supported.');
+          console.warn('Wake Lock API not supported. Using video hack...');
+          const video = document.createElement('video');
+          video.autoplay = true;
+          video.loop = true;
+          video.muted = true;
+          video.playsInline = true;
+          video.style.display = 'none';
+          video.innerHTML = `
+            <source src="data:video/mp4;base64,AAAAIGZ0eXBpc29tAAACAGlzb21pc28yYXZjMW1wNDEAAAAIZnJlZQAAAoBtZGF0AAACVAYF//9Q3EXpvebZSLeWLNgg2SPu73gyNjQgLSBjb3JlIDE1OSByMjk5MSAxNzcxYjU1IC0gSC4yNjQvTVBFRy00IEFWQyBjb2RlYyAtIENvcHlsZWZ0IDIwMDMtMjAxOSAtIGh0dHA6Ly93d3cudmlkZW9sYW4ub3JnL3gyNjQuaHRtbCAtIG9wdGlvbnM6IGNhYmFjPTAgcmVmPT0=" type="video/mp4">
+          `;
+          document.body.appendChild(video);
         }
       } catch (err) {
         console.error(`${err.name}, ${err.message}`);
