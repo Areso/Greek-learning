@@ -101,10 +101,18 @@
       <div id="div_question" class="question-card"></div><br>
       <br>
       <div class="button-group">
-        <button onclick="nextCard()" class="center-button">Next one</button>
+        <button                      id="StartLessonButton" class="center-button">Start Slideshow</button>
+        <button onclick="nextCard()" id="NextCard" class="center-button">Next one</button>
       </div>
     </div>
   </body>
+  <script>
+    document.getElementById('StartLessonButton').addEventListener('click', async () => {
+      await requestWakeLock();
+      document.getElementById('StartLessonButton').style.display = 'none'; // hide button after starting
+      nextCard(); // start the cards slideshow
+    });
+  </script>
   <script>lesson_type="memorize"</script>
   <script src="verbs_to_learn.js"></script>
 </html>

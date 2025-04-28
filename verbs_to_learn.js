@@ -1687,7 +1687,6 @@ personas = [
   "Αυτοί/Αυτές/Αυτά",
 ]
 function nextCard() {
-  await requestWakeLock();
   const lenCards = cards.length;
   const card_number_to_ask = Math.floor(Math.random() * lenCards);
   current_card = card_number_to_ask;
