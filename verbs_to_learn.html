@@ -23,6 +23,20 @@
         font-family: 'Roboto', sans-serif;
       }
     </style>-->
+    <style>
+      #wakeLockStatus {
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        width: 16px;
+        height: 16px;
+        background-color: red; /* default is "bad" */
+        border-radius: 50%;
+        z-index: 9999;
+        border: 2px solid white;
+        box-shadow: 0 0 5px rgba(0,0,0,0.5);
+      }
+    </style>      
     <link rel="stylesheet" href="style.css">
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
   </head>
@@ -42,8 +56,10 @@
 
       video.play().then(() => {
         console.log('Background video started');
+        setWakeLockStatus('green'); // success
       }).catch((err) => {
         console.error('Video play failed:', err);
+        setWakeLockStatus('red'); // failed
       });
     }
     let wakeLock = null;
@@ -52,6 +68,7 @@
         if ('wakeLock' in navigator) {
           wakeLock = await navigator.wakeLock.request('screen');
           console.log('Wake Lock is active!');
+          setWakeLockStatus('green');
         } else {
           console.log('Wake Lock API not supported.');
           console.warn('Wake Lock API not supported. Using video hack...');
@@ -69,11 +86,18 @@
       }
     });
     
+    function setWakeLockStatus(color) {
+     const statusLight = document.getElementById('wakeLockStatus');
+     if (statusLight) {
+      statusLight.style.backgroundColor = color;
+     }
+    }
     // Call it when the page loads
     requestWakeLock();
   </script>  
   <body class="interactive-page">
     <div class="container">
+      <div id="wakeLockStatus"></div>
       <div id="div_question" class="question-card"></div><br>
       <br>
       <div class="button-group">
