@@ -26,6 +26,32 @@
     <link rel="stylesheet" href="style.css">
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
   </head>
+  <script>
+    let wakeLock = null;
+    
+    async function requestWakeLock() {
+      try {
+        if ('wakeLock' in navigator) {
+          wakeLock = await navigator.wakeLock.request('screen');
+          console.log('Wake Lock is active!');
+        } else {
+          console.log('Wake Lock API not supported.');
+        }
+      } catch (err) {
+        console.error(`${err.name}, ${err.message}`);
+      }
+    }
+    
+    // Re-acquire wake lock if page is hidden and then visible again
+    document.addEventListener('visibilitychange', async () => {
+      if (wakeLock !== null && document.visibilityState === 'visible') {
+        await requestWakeLock();
+      }
+    });
+    
+    // Call it when the page loads
+    requestWakeLock();
+  </script>  
   <body class="interactive-page">
     <div class="container">
       <div id="div_question" class="question-card"></div><br>
