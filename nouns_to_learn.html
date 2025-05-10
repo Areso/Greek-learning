@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <title>
+      Greek learning: exercises and cards
+    </title>
+    <!--    <style>
+      .center-horizontal {
+        width: 350px;
+        margin: 0 auto; /* Horizontally centers the block */
+      }
+      .center-button {
+        display: block; /* Ensures the button is treated as a block element */
+        margin: 5px auto; /* Horizontally centers the button */
+        padding: 10px 10px;
+        border-radius: 5px;
+        cursor: pointer;     
+      }
+      body {
+        font-family: 'Roboto', sans-serif;
+      }
+    </style>-->
+    <style>
+      #wakeLockStatus {
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        width: 16px;
+        height: 16px;
+        background-color: red; /* default is "bad" */
+        border-radius: 50%;
+        z-index: 9999;
+        border: 2px solid white;
+        box-shadow: 0 0 5px rgba(0,0,0,0.5);
+      }
+    </style>      
+    <link rel="stylesheet" href="style.css">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  </head>
+  <script>
+    function addPlayer() {
+      const video = document.createElement('video');
+      video.autoplay      = true;
+      video.loop          = true;
+      //video.muted         = true;
+      video.playsInline   = true;
+      video.style.display = 'block';
+      //video.innerHTML = `
+      //  <source src="data:video/mp4;base64,AAAAIGZ0eXBpc29tAAACAGlzb21pc28yYXZjMW1wNDEAAAAIZnJlZQAAAoBtZGF0AAACVAYF//9Q3EXpvebZSLeWLNgg2SPu73gyNjQgLSBjb3JlIDE1OSByMjk5MSAxNzcxYjU1IC0gSC4yNjQvTVBFRy00IEFWQyBjb2RlYyAtIENvcHlsZWZ0IDIwMDMtMjAxOSAtIGh0dHA6Ly93d3cudmlkZW9sYW4ub3JnL3gyNjQuaHRtbCAtIG9wdGlvbnM6IGNhYmFjPTAgcmVmPT0=" type="video/mp4">
+      //`;
+      video.innerHTML='<source src="output.mp4" type="video/mp4">'
+      document.body.appendChild(video);
+
+      video.play().then(() => {
+        console.log('Background video started');
+        setWakeLockStatus('green'); // success
+      }).catch((err) => {
+        console.error('Video play failed:', err);
+        setWakeLockStatus('red'); // failed
+      });
+    }
+    let wakeLock = null;
+    async function requestWakeLock() {
+      try {
+        if ('wakeLock' in navigator) {
+          wakeLock = await navigator.wakeLock.request('screen');
+          console.log('Wake Lock is active!');
+          setWakeLockStatus('green');
+        } else {
+          console.log('Wake Lock API not supported.');
+          console.warn('Wake Lock API not supported. Using video hack...');
+          addPlayer();
+        }
+      } catch (err) {
+        console.error(`${err.name}, ${err.message}`);
+      }
+    }
+    
+    // Re-acquire wake lock if page is hidden and then visible again
+    document.addEventListener('visibilitychange', async () => {
+      if (wakeLock !== null && document.visibilityState === 'visible') {
+        await requestWakeLock();
+      }
+    });
+    
+    function setWakeLockStatus(color) {
+     const statusLight = document.getElementById('wakeLockStatus');
+     if (statusLight) {
+      statusLight.style.backgroundColor = color;
+     }
+    }
+    // Call it when the page loads
+    //requestWakeLock();
+  </script>  
+  <body class="interactive-page">
+    <div class="container">
+      <div id="wakeLockStatus"></div>
+      <div id="div_question" class="question-card"></div><br>
+      <br>
+      <div class="button-group">
+        <button                      id="StartLessonButton" class="center-button">Start Slideshow</button>
+        <button onclick="nextCard()" id="NextCard" class="center-button">Next one</button>
+      </div>
+    </div>
+  </body>
+  <script>
+    document.getElementById('StartLessonButton').addEventListener('click', async () => {
+      await requestWakeLock();
+      document.getElementById('StartLessonButton').style.display = 'none'; // hide button after starting
+      nextCard(); // start the cards slideshow
+    });
+  </script>
+  <script>lesson_type="memorize"</script>
+  <script src="nouns_to_learn.js"></script>
+</html>
