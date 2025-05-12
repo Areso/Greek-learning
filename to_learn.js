@@ -110,4 +110,7 @@ function showCorrect() {
   resDiv.innerHTML = correctAnswer;
 }
 nextCard();
-mytimer = setInterval(nextCard, 20000);
+
+if (lesson_type === "memorize") {
+  mytimer = setInterval(nextCard, 30000);
+}
