@@ -73,7 +73,7 @@ function nextCard() {
     document.getElementById("div_question").innerHTML = theText;
   }
   if (lesson_type === "practice") {
-    document.getElementById("answer").value = "";
+    document.getElementById("answer_text_field").value = "";
     document.getElementById("result_or_correct_answer").innerHTML = "";
     lenConj = cards[card_number_to_ask].ctable[constrId][en_constrName].length;
     if (lenConj === 0) {
@@ -95,7 +95,7 @@ function nextCard() {
   }
 }
 function check() {
-  userInput = document.getElementById("answer").value.trim().toLowerCase();
+  userInput = document.getElementById("answer_text_field").value.trim().toLowerCase();
   correctAnswer = correctAnswer.toLowerCase();
   resDiv = document.getElementById("result_or_correct_answer");
   if (userInput !== correctAnswer) {
