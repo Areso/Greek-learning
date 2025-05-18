@@ -83,15 +83,25 @@ function nextCard() {
     if (lenConj !== 0) {
       conjPos = Math.floor(Math.random() * lenConj);
     }
-    conjugated = cards[card_number_to_ask].ctable[constrId][en_constrName][conjPos];
-    question = personas[conjPos] + " " + conjugated + " <br>";
-    correctAnswer = question.split(' ')[1] // first we have pronoun, then verb, then everything else
-    questionToAsk = conjugated.split(' ');
-    questionToAsk[0] = '----';
-    engVerb = " (" + cards[card_number_to_ask].en + ")";
+    conjugated        = cards[card_number_to_ask].ctable[constrId][en_constrName][conjPos];
+    question          = personas[conjPos] + " " + conjugated + " <br>";
+    // first we have pronoun, then verb, then everything else
+    correctAnswer     = question.split(' ')[1] 
+    replaceParticiple = false;
+    if (correctAnswer === "να" || correctAnswer === "θα") {
+      correctAnswer = question.split(' ')[2];
+      replaceParticiple = true;
+    }
+    questionToAsk     = conjugated.split(' ');
+    if (replaceParticiple) {
+      questionToAsk[1]  = '----';
+    } else {
+      questionToAsk[0]  = '----';
+    }
+    engVerb           = " (" + cards[card_number_to_ask].en + ")";
     upd_questionToAsk = personas[conjPos] + " " + questionToAsk.join(' ') + engVerb;
-    htmlQuestion = document.getElementById("div_question")
-    htmlQuestion.innerHTML = upd_questionToAsk
+    htmlQuestion           = document.getElementById("div_question");
+    htmlQuestion.innerHTML = upd_questionToAsk;
   }
 }
 function check() {
