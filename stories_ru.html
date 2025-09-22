@@ -1,13 +1,41 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <title>
       Greek learning: exercises and cards
     </title>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
     <link rel="stylesheet" href="style.css">
     <style>
-      .tip { position: relative; cursor: help; }
+      #wakeLockStatus {
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        width: 16px;
+        height: 16px;
+        background-color: red; /* default is "bad" */
+        border-radius: 50%;
+        z-index: 9999;
+        border: 2px solid white;
+        box-shadow: 0 0 5px rgba(0,0,0,0.5);
+      }
+    </style> 
+    <style>
+      .russian {
+        background-color: #ffe0e0;
+      }
+      .greek {
+        background-color: #b3daff;
+      }
+      .tip { 
+        position: relative; 
+        cursor: help; 
+        color: #888;
+        font-weight: bold;
+      }
       .tip:hover::after, .tip:focus::after {
         content: attr(data-tip);
         position: absolute; left: 50%; top: -0.4rem;
@@ -45,19 +73,17 @@
     -->
 
     <div id="div_question">
-      Жили-были дедушка с бабушкой. Однажды просит <span class="tip" data-tip="дедушка">ο παππούς</span>:<br>
-      — Пожарь, <span class="tip" data-tip="бабушка">γιαγιά</span>, колобок.<br>
-      — Из чего пожарить-то? Муки нет.<br>
-      — Эх, <span class="tip" data-tip="бабушка">γιαγιά</span>! По коробу поскреби, по сусеку помети; авось <span class="tip" data-tip="муки">αλεύρι</span>и наберется.<br>
-      <span class="tip" data-tip="бабушка">γιαγιά</span> по <span class="tip" data-tip="по коробу">στο κουτί</span> поскребла, по сусеку помела, и набралось <span class="tip" data-tip="муки">αλεύρι</span> две пригоршни. 
+      I<br>
+      Жили-были <span class="russian">дедушка</span> с <span class="russian">бабушкой</span>. Однажды просит <span class="tip greek" data-tip="дедушка">ο παππούς</span>:<br>
+      — Пожарь, <span class="tip greek" data-tip="бабушка">γιαγιά</span>, колобок.<br>
+      — Из чего пожарить-то? <span class="russian">Муки</span> нет.<br>
+      — Эх, <span class="tip greek" data-tip="бабушка">γιαγιά</span>! По коробу поскреби, по сусеку помети; авось <span class="tip" data-tip="муки">αλεύρι</span> и наберется.<br>
+      <span class="tip greek" data-tip="бабушка">γιαγιά</span> по <span class="tip greek" data-tip="по коробу">στο κουτί</span> поскребла, по сусеку помела, и набралось <span class="tip greek" data-tip="муки">αλεύρι</span> две пригоршни. 
       Замесила на сметане, <span class="tip" data-tip="пожарила">έψησε</span> в масле и положила колобка на окно остудить.<br>
-      <span class="tip" data-tip="Колобок">Ο Κολομπόκ</span> полежал-полежал, да вдруг и покатился — <span class="tip" data-tip="с окна">από το παράθυρο</span> на лавку, 
-      <span class="tip" data-tip="с лавки">από το σκαμνί</span> на пол, <span class="tip" data-tip="по полу">στο πάτωμα</span> да к двери.<br>
-      Прошел <span class="tip" data-tip="через дверь">την πόρτα</span> и в сени. <span class="tip" data-tip="из сеней">Από τον προθάλαμο</span> на порог, 
-      <span class="tip" data-tip="с порога">από το κατώφλι</span> во двор.<br> <span class="tip" data-tip="Со двора">Από την αυλή</span> за ворота, и дальше, 
-
-      , перепрыгнул через порог в сени, 
-      из сеней на крыльцо, с крыльца на двор, со двора за ворота, дальше и дальше.<br>
+      <span class="tip greek" data-tip="Колобок">Ο Κολομπόκ</span> полежал-полежал, да вдруг и покатился — <span class="tip greek" data-tip="с окна">από το παράθυρο</span> на лавку, 
+      <span class="tip grek" data-tip="с лавки">από το σκαμνί</span> на пол, <span class="tip greek" data-tip="по полу">στο πάτωμα</span> да к двери.<br>
+      Прошел <span class="tip greek" data-tip="через дверь">την πόρτα</span> и в сени. <span class="tip greek" data-tip="из сеней">Από τον προθάλαμο</span> на порог, 
+      <span class="tip greek" data-tip="с порога">από το κατώφλι</span> во двор.<br> <span class="tip greek" data-tip="Со двора">Από την αυλή</span> за ворота, и все дальше, <span class="tip greek" data-tip="все дальше">πιο μακριά</span><br>
       Катится колобок по дороге, а навстречу ему заяц:<br>
 
     </div><br>
