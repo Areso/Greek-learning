@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      Greek learning: exercises and cards
+    </title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <link rel="stylesheet" href="style.css">
+    <style>
+      .tip { position: relative; cursor: help; }
+      .tip:hover::after, .tip:focus::after {
+        content: attr(data-tip);
+        position: absolute; left: 50%; top: -0.4rem;
+        transform: translate(-50%, -100%);
+        white-space: nowrap; padding: .3rem .5rem; border-radius: .35rem;
+        background: #222; color: #fff; font-size: .875rem; line-height: 1;
+        box-shadow: 0 2px 8px rgba(0,0,0,.2); pointer-events: none;
+      }
+      .tip:hover::before, .tip:focus::before {
+        content: ""; position: absolute; left: 50%; top: -0.4rem;
+        transform: translate(-50%, -50%);
+        border: .4rem solid transparent; border-top-color: #222;
+      }
+      .tip:focus { outline: 2px solid #bbb; }
+    </style>
+  </head>
+  <body>
+    <!--B1
+    <div id="div_question">
+      Жили-были старик со старухой. Однажды просит <span class="tip" data-tip="старик">γέρος</span>:<br>
+      — Испеки, _старуха_, колобок.<br>
+      — Из чего испечь-то? Муки нет.<br>
+      — Эх, _старуха_! По коробу поскреби, по сусеку помети; авось _муки_ и наберется.<br>
+      _Старуха_ по _коробу_ поскребла, по _сусеку_ помела, и набралось _муки_ две пригоршни. 
+      Замесила на сметане, пожарила в масле и положила на окошечко остудить.<br>
+      Колобок полежал-полежал, да вдруг и покатился — с окна на лавку, 
+      с лавки на пол, по полу да к дверям, перепрыгнул через порог в сени, 
+      из сеней на крыльцо, с крыльца на двор, со двора за ворота, дальше и дальше.<br>
+      Катится колобок по дороге, а навстречу ему заяц:<br>
+    αλεύρι
+    κιβώτιο, σεντούκι - короб
+    κουτί
+    
+    προθάλαμος
+    -->
+
+    <div id="div_question">
+      Жили-были дедушка с бабушкой. Однажды просит <span class="tip" data-tip="дедушка">ο παππούς</span>:<br>
+      — Пожарь, <span class="tip" data-tip="бабушка">γιαγιά</span>, колобок.<br>
+      — Из чего пожарить-то? Муки нет.<br>
+      — Эх, <span class="tip" data-tip="бабушка">γιαγιά</span>! По коробу поскреби, по сусеку помети; авось <span class="tip" data-tip="муки">αλεύρι</span>и наберется.<br>
+      <span class="tip" data-tip="бабушка">γιαγιά</span> по <span class="tip" data-tip="по коробу">στο κουτί</span> поскребла, по сусеку помела, и набралось <span class="tip" data-tip="муки">αλεύρι</span> две пригоршни. 
+      Замесила на сметане, <span class="tip" data-tip="пожарила">έψησε</span> в масле и положила колобка на окно остудить.<br>
+      <span class="tip" data-tip="Колобок">Ο Κολομπόκ</span> полежал-полежал, да вдруг и покатился — <span class="tip" data-tip="с окна">από το παράθυρο</span> на лавку, 
+      <span class="tip" data-tip="с лавки">από το σκαμνί</span> на пол, <span class="tip" data-tip="по полу">στο πάτωμα</span> да к двери.<br>
+      Прошел <span class="tip" data-tip="через дверь">την πόρτα</span> и в сени. <span class="tip" data-tip="из сеней">Από τον προθάλαμο</span> на порог, 
+      <span class="tip" data-tip="с порога">από το κατώφλι</span> во двор.<br> <span class="tip" data-tip="Со двора">Από την αυλή</span> за ворота, и дальше, 
+
+      , перепрыгнул через порог в сени, 
+      из сеней на крыльцо, с крыльца на двор, со двора за ворота, дальше и дальше.<br>
+      Катится колобок по дороге, а навстречу ему заяц:<br>
+
+    </div><br>
+    <!--
+    <input type="text" id="user_response"><br><br>
+    <div id="divCheckResult" ></div><br>
+    <div id="divCorrectAnswer" style="visibility: hidden;"></div><br>
+    <br>
+    <button onclick="check()">Check</button>
+    <button onclick="showCorrectAnswer()">Show correct answer</button>
+    <button onclick="nextCard()">Next one</button>
+    -->
+  </body>
+  <!--<script src="days.js"></script>-->
+</html>
