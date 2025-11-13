@@ -3,6 +3,7 @@
 For training and memorizing.  
 Done:  
 1. numbers (0-101)  
+2. verbs learning & verbs exercise  
 
 
 ## try here: greek.areso.pro
