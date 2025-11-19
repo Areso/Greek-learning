@@ -1,292 +1,409 @@
 /* variables for palette shitts and margins (mobile-first) */
 :root {
-    --color-background: #f4f4f4;    /* background color */
-    --color-body-bg: #ffffff;       /* cards' color and footer's color */
-    --color-text: #333333;
-    --color-primary: #2c3e50;       /* H1 color  */
-    --color-secondary: #2980b9;     /* Links and elements color */
-    --color-border: #dddddd;
-    --color-success: #27ae60;
-    --color-error: #e74c3c;
-  
-    --font-size-base: 16px;
-    --font-size-medium: 20px;
-    --font-size-large: 24px;
-    --padding-base: 16px;
-    --margin-base: 16px;
-    --max-width: 960px;
-    --max-width-lesson: 500px;
-  }
-  
-  /* margins reset and basic style */
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    background-color: var(--color-background);
-    color: var(--color-text);
-    font-size: var(--font-size-base);
-    line-height: 1.6;
-  }
-  
-  /* center box */
+  --color-background: #f4f4f4;    /* background color */
+  --color-body-bg: #ffffff;       /* cards' color and footer's color */
+  --color-text: #333333;
+  --color-primary: #2c3e50;       /* H1 color  */
+  --color-secondary: #2980b9;     /* Links and elements color */
+  --color-preferred: #4b5ae6;     /* Links and elements color */
+  --color-border: #dddddd;
+  --color-success: #27ae60;
+  --color-error: #e74c3c;
+
+  --font-size-base: 16px;
+  --font-size-medium: 20px;
+  --font-size-large: 24px;
+  --padding-base: 16px;
+  --margin-base: 16px;
+  --max-width: 960px;
+  --max-width-lesson: 500px;
+}
+
+/* margins reset and basic style */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-size: var(--font-size-base);
+  line-height: 1.6;
+}
+
+/* center box */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--padding-base);
+}
+
+/* Logo' style and chapters' style */
+.logo {
+  text-align: center;
+  margin: var(--margin-base) 0;
+  font-size: var(--font-size-large);
+  font-weight: bold;
+}
+
+.logo-img {
+  max-width: 200px;
+  width: 100%;
+  height: auto;
+}
+
+.chapter-card {
+  display: block;
+  text-decoration: none;
+  background-color: var(--color-body-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  margin-bottom: var(--margin-base);
+  overflow: hidden;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.chapter-card:active {
+  transform: scale(0.995);
+}
+
+.chapter-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.chapter-header {
+  display: flex;
+  align-items: center;
+  padding: var(--padding-base);
+}
+
+.chapter-number {
+  font-size: var(--font-size-large);
+  font-weight: 500;
+  border-radius: 50%;
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: var(--margin-base);
+  color: var(--color-text);
+  text-align: center;
+}
+
+.chapter-title {
+  font-size: var(--font-size-medium);
+  color: var(--color-primary);
+}
+
+
+.chapter-lessons-preps {
+  display: none;
+  border-top: 1px solid var(--color-border);
+}
+
+.chapter-lessons-articles {
+  display: none;
+  border-top: 1px solid var(--color-border);
+}
+
+.chapter-lessons-preps a {
+  display: block;
+  padding: var(--padding-base);
+  text-decoration: none;
+  color: var(--color-secondary);
+  border-bottom: 1px solid var(--color-border);
+  transition: background-color 0.3s;
+}
+
+.chapter-lessons-articles a {
+  display: block;
+  padding: var(--padding-base);
+  text-decoration: none;
+  color: var(--color-secondary);
+  border-bottom: 1px solid var(--color-border);
+  transition: background-color 0.3s;
+}
+
+.chapter-lessons-preps a:last-child {
+  border-bottom: none;
+}
+
+.chapter-lessons-articles a:last-child {
+  border-bottom: none;
+}
+
+.chapter-lessons-preps a:hover {
+  background-color: var(--color-background);
+}
+
+
+.chapter-lessons-articles a:hover {
+  background-color: var(--color-background);
+}
+
+/* CLEANUP: 
+  Replaced .chapter-lessons-preps and .chapter-lessons-articles 
+  with one generic .chapter-lessons class to match the new index.html
+*/
+.chapter-lessons {
+  display: none;
+  border-top: 1px solid var(--color-border);
+}
+
+.chapter-lessons a {
+  display: block;
+  padding: var(--padding-base);
+  text-decoration: none;
+  color: var(--color-secondary);
+  border-bottom: 1px solid var(--color-border);
+  transition: background-color 0.3s;
+}
+
+.chapter-lessons a:last-child {
+  border-bottom: none;
+}
+
+.chapter-lessons a:hover {
+  background-color: var(--color-background);
+}
+
+.site-footer {
+  text-align: center;
+  padding: var(--padding-base);
+  font-size: var(--font-size-base);
+  border-top: 1px solid var(--color-border);
+  margin-top: var(--margin-base);
+  background-color: var(--color-body-bg);
+}
+
+/* Lessons' styles (for verbs_memorize.html, verbs_practice.html, etc.) */
+.interactive-page .container {
+  max-width: var(--max-width-lesson);
+ }
+
+.exercise-header {
+  text-align: center;
+  margin-bottom: var(--margin-base);
+}
+
+.exercise-header h2 {
+  font-size: var(--font-size-large);
+  color: var(--color-primary);
+  margin-bottom: 8px;
+}
+
+.progress {
+  font-size: var(--font-size-base);
+  color: var(--color-secondary);
+}
+
+/* Question area */
+.question-card {
+  background-color: var(--color-body-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  padding: var(--padding-base);
+  margin-bottom: var(--margin-base);
+  min-height: 200px;
+}
+
+#answer_text_field {
+  width: 100%;
+  padding: 8px;
+  font-size: var(--font-size-base);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  margin-bottom: var(--margin-base);
+}
+
+.result-section {
+  text-align: center;
+  margin-bottom: var(--margin-base);
+  font-size: var(--font-size-base);
+}
+
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--margin-base);
+  margin-bottom: var(--margin-base);
+}
+
+.button-group button {
+  padding: 10px 20px;
+  font-size: var(--font-size-base);
+  border: none;
+  background-color: var(--color-secondary);
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+
+.button-group button:hover {
+  background-color: var(--color-primary);
+}
+
+/* Preferred button variant (from borrowed CSS) */
+.button-group button.preferred {
+  background-color: var(--color-preferred);
+}
+
+.button-group button.preferred:hover {
+  background-color: var(--color-primary);
+}
+
+.back-link {
+  text-align: center;
+  margin-top: var(--margin-base);
+}
+
+.back-link a {
+  text-decoration: none;
+  color: var(--color-secondary);
+  font-weight: bold;
+}
+
+.correct {
+  color: var(--color-success);
+}
+
+.wrong {
+  color: var(--color-error);
+}
+
+/* Grid , cells no margin */
+.answer-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: var(--margin-base);
+  margin-bottom: var(--margin-base);
+}
+
+.answer-options > *:hover {
+  background-color: var(--color-background);
+}
+
+
+/* hiding radio-input */
+#answer_radiobutton_div input[type="radio"] {
+  opacity: 0;
+  position: absolute;
+  pointer-events: none;
+}
+
+/* radio-input-like label */
+#answer_radiobutton_div label {
+  flex-grow: 1;
+  flex-shrink: 0;
+  background-color: var(--color-body-bg);
+  border: 1px solid var(--color-border);
+  padding: var(--padding-base);
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+
+  display: block;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+  font-size: var(--font-size-medium);
+  color: var(--color-text);
+}
+
+
+/* when input is checked label is colored */
+#answer_radiobutton_div input[type="radio"]:checked + label {
+  background-color: var(--color-secondary);
+  color: var(--color-body-bg);
+}
+
+#answer_radiobutton_div label:hover {
+  border-color: var(--color-secondary);
+}
+
+#answer_radiobutton_div label:active {
+  transform: scale(0.98);
+}
+
+/* Styles for info/grammar pages (from borrowed CSS) */
+.info-page .container {
+  max-width: var(--max-width-lesson);
+}
+
+#spnTopic {
+  display: block;
+  text-align: center;
+  font-size: var(--font-size-large);
+  color: var(--color-primary);
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+#spnGrammar {
+  display: block;
+  text-align: left;
+  color: var(--color-text);
+  margin-bottom: var(--margin-base);
+  font-size: var(--font-size-base);
+  line-height: 1.6;
+}
+
+#spnGrammar br {
+  display: block;
+  margin-bottom: 0.6em;
+  content: "";
+}
+
+.grammar-card {
+  background-color: var(--color-body-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  padding: var(--padding-base);
+  margin-bottom: var(--margin-base);
+}
+
+.info-page .back-link {
+  text-align: center;
+  margin-top: var(--margin-base);
+}
+
+.info-page .back-link a {
+  text-decoration: none;
+  color: var(--color-secondary);
+  font-weight: bold;
+}
+
+.info-page .back-link a:hover {
+  text-decoration: underline;
+}
+
+
+/* desktop handling */
+@media (min-width: 768px) {
   .container {
-    max-width: var(--max-width);
-    margin: 0 auto;
-    padding: var(--padding-base);
+    padding: calc(var(--padding-base) * 1.5);
   }
-  
-  /* Logo' style and chapters' style */
-  .logo {
-    text-align: center;
-    margin: var(--margin-base) 0;
-    font-size: var(--font-size-large);
-    font-weight: bold;
-  }
-  
-  .logo-img {
-    max-width: 200px;
-    width: 100%;
-    height: auto;
-  }
-  
-  .chapter-card {
-    display: block;
-    text-decoration: none;
-    background-color: var(--color-body-bg);
-    border: 1px solid var(--color-border);
-    border-radius: 4px;
-    margin-bottom: var(--margin-base);
-    overflow: hidden;
-    cursor: pointer;
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
-  }
-  
-  .chapter-card:active {
-    transform: scale(0.995);
-  }
-  
-  .chapter-card:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
   .chapter-header {
-    display: flex;
-    align-items: center;
-    padding: var(--padding-base);
+    padding: calc(var(--padding-base) * 1.5);
   }
-  
-  .chapter-number {
-    font-size: var(--font-size-large);
-    font-weight: 500;
-    border-radius: 50%;
-    flex-shrink: 0;
-    width: 32px;
-    height: 32px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: var(--margin-base);
-    color: var(--color-text);
-    text-align: center;
-  }
-  
-  .chapter-title {
-    font-size: var(--font-size-medium);
-    color: var(--color-primary);
-  }
-  
-  .chapter-lessons {
-    display: none;
-    border-top: 1px solid var(--color-border);
-  }
-  
+
+  /* CLEANUP: Pointing this to the generic .chapter-lessons class */
   .chapter-lessons a {
-    display: block;
-    padding: var(--padding-base);
-    text-decoration: none;
-    color: var(--color-secondary);
-    border-bottom: 1px solid var(--color-border);
-    transition: background-color 0.3s;
+    padding: calc(var(--padding-base) * 1.25);
   }
-  
-  .chapter-lessons a:last-child {
-    border-bottom: none;
-  }
-  
-  .chapter-lessons a:hover {
-    background-color: var(--color-background);
-  }
-  
-  .site-footer {
-    text-align: center;
-    padding: var(--padding-base);
-    font-size: var(--font-size-base);
-    border-top: 1px solid var(--color-border);
-    margin-top: var(--margin-base);
-    background-color: var(--color-body-bg);
-  }
-  
-  /* Lessons' styles */
-  .interactive-page .container {
-    max-width: var(--max-width-lesson);
-   }
-  
-  .exercise-header {
-    text-align: center;
-    margin-bottom: var(--margin-base);
-  }
-  
   .exercise-header h2 {
-    font-size: var(--font-size-large);
-    color: var(--color-primary);
-    margin-bottom: 8px;
+    font-size: calc(var(--font-size-large) * 1.1);
   }
-  
-  .progress {
-    font-size: var(--font-size-base);
-    color: var(--color-secondary);
+  #spnTopic {
+    font-size: calc(var(--font-size-large) * 1.1);
   }
-  
-  /* Question area */
-  .question-card {
-    background-color: var(--color-body-bg);
-    border: 1px solid var(--color-border);
-    border-radius: 4px;
-    padding: var(--padding-base);
-    margin-bottom: var(--margin-base);
-    min-height: 200px;
-  }
-  
-  #answer_text_field {
-    width: 100%;
-    padding: 8px;
-    font-size: var(--font-size-base);
-    border: 1px solid var(--color-border);
-    border-radius: 4px;
-    margin-bottom: var(--margin-base);
-  }
-  
-  .result-section {
-    text-align: center;
-    margin-bottom: var(--margin-base);
-    font-size: var(--font-size-base);
-  }
-  
-  .button-group {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: var(--margin-base);
-    margin-bottom: var(--margin-base);
-  }
-  
-  .button-group button {
-    padding: 10px 20px;
-    font-size: var(--font-size-base);
-    border: none;
-    background-color: var(--color-secondary);
-    color: #fff;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .button-group button:hover {
-    background-color: var(--color-primary);
-  }
-  
-  .back-link {
-    text-align: center;
-    margin-top: var(--margin-base);
-  }
-  
-  .back-link a {
-    text-decoration: none;
-    color: var(--color-secondary);
-    font-weight: bold;
-  }
-  
-  .correct {
-    color: var(--color-success);
-  }
-  
-  .wrong {
-    color: var(--color-error);
-  }
-  
-  /* Grid , cells no margin */
-  .answer-options {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: var(--margin-base);
-    margin-bottom: var(--margin-base);
-  }
-  
-  .answer-options > *:hover {
-    background-color: var(--color-background);
-  }
-  
-  
-  /* hiding radio-input */
-  #answer_radiobutton_div input[type="radio"] {
-    opacity: 0;
-    position: absolute;
-    pointer-events: none;
-  }
-  
-  /* radio-input-like label */
-  #answer_radiobutton_div label {
-    flex-grow: 1;
-    flex-shrink: 0;
-    background-color: var(--color-body-bg);
-    border: 1px solid var(--color-border);
-    padding: var(--padding-base);
-    text-align: center;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-  
-    display: block;
-    position: relative;
-    cursor: pointer;
-    user-select: none;
-    font-size: var(--font-size-medium);
-    color: var(--color-text);
-  }
-  
-  
-  /* when input is checked label is colored */
-  #answer_radiobutton_div input[type="radio"]:checked + label {
-    background-color: var(--color-secondary);
-    color: var(--color-body-bg);
-  }
-  
-  #answer_radiobutton_div label:hover {
-    border-color: var(--color-secondary);
-  }
-  
-  #answer_radiobutton_div label:active {
-    transform: scale(0.98);
-  }
-  
-  
-  /* desktop handling */
-  @media (min-width: 768px) {
-    .container {
-      padding: calc(var(--padding-base) * 1.5);
-    }
-    .chapter-header {
-      padding: calc(var(--padding-base) * 1.5);
-    }
-    .chapter-lessons a {
-      padding: calc(var(--padding-base) * 1.25);
-    }
-    .exercise-header h2 {
-      font-size: calc(var(--font-size-large) * 1.1);
-    }
-  }
-  
+}

@@ -1,29 +1,55 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>
-      Greek learning: exercises and cards
-    </title>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
-  </head>
+<head>
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<title>
+English exercises
+</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<!-- Yandex.Metrika counter -->
+<!-- <script src="js/eventer.js" ></script> -->
+<!-- /Yandex.Metrika counter -->
+</head>
+<body>
   <body>
-    Greek language exercises<br><br>
-    Ellenika Alpha: <br><br>
-    1) Lesson 1 <br><br>
-    2) Lesson 2 <br><br>
-    3) Lesson 3 <br><br>
-    KLIK A1:<br><br>
-    Appendix 1: <a href="click_dict.html">Dictionary</a><br><br>
-    <a href="numbers.html">Numbers</a><br><br>
-    <a href="days.html">Days to check</a><br><br>
-    <a href="phrases.html">Phrases to check</a><br><br>
-    <a href="verbs_to_learn.html">Verbs to learn</a><br><br>
-    <a href="verbs_to_practice.html">Verbs to practice</a><br><br>
-    <a href="dialogues.html">Dialogues to memorize</a><br><br>
-    Places <a href="places.html?level=0">A0</a>
-    <a href="places.html?level=1">A1</a><br><br>
-    Colors <a href="colors.html?level=0">A0</a>
-    <a href="colors.html?level=1">A1</a><br><br>
-    <br><br>
+    <noscript>
+      <div>
+        <img src="https://mc.yandex.ru/watch/91922670" alt="Tracking">
+      </div>
+    </noscript>
+  
+    <div class="logo">
+      English Exercises
+    </div>
+  
+    <main class="container">
+      <div class="chapter-card" onclick="showHidePrepositions()">
+        <div class="chapter-header">
+          <div class="chapter-number">I</div>
+          <div class="chapter-title">Verbs</div>
+        </div>
+        <div class="chapter-lessons-preps">
+          <a href="verbs_to_learn.html" onclick="event.stopPropagation()">Verbs to learn</a>
+          <a href="verbs_to_practice.html" onclick="event.stopPropagation()">Verbs to practice</a>
+        </div>
+      </div>
+
+    </main>
   </body>
+  <script>
+    function showHidePrepositions() {
+      const chapterCard = event.currentTarget;
+      const lessons = chapterCard.querySelector('.chapter-lessons-preps');
+      if (lessons) {
+        lessons.style.display = lessons.style.display === 'none' || lessons.style.display === '' ? 'block' : 'none';
+      }
+    }
+    function showHideArticles() {
+      const chapterCard = event.currentTarget;
+      const lessons = chapterCard.querySelector('.chapter-lessons-articles');
+      if (lessons) {
+        lessons.style.display = lessons.style.display === 'none' || lessons.style.display === '' ? 'block' : 'none';
+      }
+    }
+  </script>
 </html>
