@@ -47,10 +47,11 @@ function buildTable(card, hiddenForm) {
 function nextCard() {
   currentCardIndex = randomIndex(adjectiveCards.length, currentCardIndex);
   const card = adjectiveCards[currentCardIndex];
-  const example = card.examples[randomIndex(card.examples.length)];
   const question = document.getElementById("div_question");
 
   if (lessonType === "learn") {
+    const exampleGroup = card.examples[randomIndex(card.examples.length)];
+    const example = selectExampleVariant(exampleGroup);
     question.innerHTML = `
       <div class="adjective-heading">
         <strong>${card.greek}</strong>
@@ -62,8 +63,13 @@ function nextCard() {
   }
 
   const number = numbers[randomIndex(numbers.length)];
-  const caseIndex = randomIndex(cases.length);
+  const practiceCaseIndexes = [0, 2, 3];
+  const caseIndex = practiceCaseIndexes[randomIndex(practiceCaseIndexes.length)];
   const genderIndex = randomIndex(genders.length);
+  const exampleLabel = `${cases[caseIndex].toLowerCase()} ${number}, ${genders[genderIndex].toLowerCase()}`;
+  const matchingExamples = card.examples.filter((item) => item.label === exampleLabel);
+  const exampleGroup = matchingExamples[randomIndex(matchingExamples.length)];
+  const example = selectExampleVariant(exampleGroup);
   correctAnswer = card.forms[number][caseIndex][genderIndex];
 
   question.innerHTML = `
@@ -79,6 +85,13 @@ function nextCard() {
   result.textContent = "";
   result.className = "";
   document.getElementById("answer_text_field").focus();
+}
+
+function selectExampleVariant(exampleGroup) {
+  return {
+    ...exampleGroup,
+    ...exampleGroup.variants[randomIndex(exampleGroup.variants.length)]
+  };
 }
 
 function buildExample(example, showGreek) {
