@@ -280,6 +280,103 @@ body {
   color: var(--color-error);
 }
 
+.lesson-title {
+  color: var(--color-primary);
+  font-size: var(--font-size-large);
+  margin-bottom: var(--margin-base);
+  text-align: center;
+}
+
+.adjective-page .container {
+  max-width: 760px;
+}
+
+.adjective-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: var(--margin-base);
+}
+
+.adjective-heading strong {
+  color: var(--color-primary);
+  font-size: var(--font-size-large);
+}
+
+.adjective-heading span {
+  color: #666;
+  text-align: right;
+}
+
+.adjective-example {
+  background: #f7f8fa;
+  border-left: 3px solid var(--color-secondary);
+  display: grid;
+  gap: 2px;
+  margin-bottom: var(--margin-base);
+  padding: 9px 12px;
+}
+
+.adjective-example strong {
+  font-weight: 500;
+}
+
+.adjective-example .example-label {
+  color: #666;
+  font-size: 13px;
+  text-transform: capitalize;
+}
+
+.declension-table-wrap {
+  overflow-x: auto;
+}
+
+.declension-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+}
+
+.declension-table th,
+.declension-table td {
+  border: 1px solid var(--color-border);
+  padding: 9px 8px;
+  text-align: center;
+}
+
+.declension-table thead th,
+.declension-table th[scope="row"] {
+  background: #f7f8fa;
+  font-weight: 500;
+}
+
+.declension-table th[scope="row"] {
+  text-align: left;
+  white-space: nowrap;
+}
+
+.declension-table .number-row th {
+  background: var(--color-primary);
+  color: #fff;
+  font-size: var(--font-size-base);
+  letter-spacing: 0.04em;
+  padding: 6px 8px;
+  text-transform: capitalize;
+}
+
+.missing-form {
+  color: var(--color-secondary);
+  font-size: var(--font-size-medium);
+  font-weight: 700;
+}
+
+.answer-label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
 /* Grid , cells no margin */
 .answer-options {
   display: grid;
@@ -405,5 +502,39 @@ body {
   }
   #spnTopic {
     font-size: calc(var(--font-size-large) * 1.1);
+  }
+}
+
+@media (max-width: 560px) {
+  .adjective-page .container {
+    padding: 10px;
+  }
+
+  .adjective-page .question-card {
+    padding: 10px;
+  }
+
+  .adjective-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .adjective-heading span {
+    text-align: left;
+  }
+
+  .declension-table {
+    font-size: 13px;
+  }
+
+  .declension-table th,
+  .declension-table td {
+    padding: 7px 4px;
+  }
+
+  .declension-table th[scope="row"] {
+    max-width: 86px;
+    white-space: normal;
   }
 }

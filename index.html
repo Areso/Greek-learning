@@ -10,7 +10,6 @@ English exercises
 <!-- <script src="js/eventer.js" ></script> -->
 <!-- /Yandex.Metrika counter -->
 </head>
-<body>
   <body>
     <noscript>
       <div>
@@ -23,7 +22,7 @@ English exercises
     </div>
   
     <main class="container">
-      <div class="chapter-card" onclick="showHidePrepositions()">
+      <div class="chapter-card" onclick="toggleLessons(event)">
         <div class="chapter-header">
           <div class="chapter-number">I</div>
           <div class="chapter-title">Verbs</div>
@@ -34,22 +33,25 @@ English exercises
         </div>
       </div>
 
+      <div class="chapter-card" onclick="toggleLessons(event)">
+        <div class="chapter-header">
+          <div class="chapter-number">II</div>
+          <div class="chapter-title">Adjectives</div>
+        </div>
+        <div class="chapter-lessons">
+          <a href="adjectives_to_learn.html" onclick="event.stopPropagation()">Adjectives to learn</a>
+          <a href="adjectives_to_practice.html" onclick="event.stopPropagation()">Adjectives to practice</a>
+        </div>
+      </div>
+
     </main>
+    <script>
+      function toggleLessons(event) {
+        const lessons = event.currentTarget.querySelector('.chapter-lessons, .chapter-lessons-preps');
+        if (lessons) {
+          lessons.style.display = lessons.style.display === 'none' || lessons.style.display === '' ? 'block' : 'none';
+        }
+      }
+    </script>
   </body>
-  <script>
-    function showHidePrepositions() {
-      const chapterCard = event.currentTarget;
-      const lessons = chapterCard.querySelector('.chapter-lessons-preps');
-      if (lessons) {
-        lessons.style.display = lessons.style.display === 'none' || lessons.style.display === '' ? 'block' : 'none';
-      }
-    }
-    function showHideArticles() {
-      const chapterCard = event.currentTarget;
-      const lessons = chapterCard.querySelector('.chapter-lessons-articles');
-      if (lessons) {
-        lessons.style.display = lessons.style.display === 'none' || lessons.style.display === '' ? 'block' : 'none';
-      }
-    }
-  </script>
 </html>
