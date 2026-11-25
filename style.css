@@ -287,6 +287,136 @@ body {
   text-align: center;
 }
 
+.exercise-page .container {
+  max-width: 820px;
+}
+
+.lesson-series {
+  color: var(--color-secondary);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.exercise-page .exercise-instruction-block {
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: var(--margin-base);
+  padding-bottom: var(--margin-base);
+}
+
+.exercise-page .exercise-instructions-en {
+  color: #666;
+  font-size: 14px;
+  font-style: italic;
+  margin-top: 4px;
+}
+
+.change-word-page .change-word-list {
+  display: grid;
+  gap: 18px;
+  padding-left: 28px;
+}
+
+.change-word-page .change-word-item {
+  padding-left: 4px;
+}
+
+.change-word-page .change-word-input {
+  border: 0;
+  border-bottom: 2px solid var(--color-secondary);
+  border-radius: 0;
+  font: inherit;
+  margin: 0 5px;
+  min-width: 170px;
+  padding: 2px 4px;
+  width: 28%;
+}
+
+.change-word-page .change-word-input:focus {
+  border-bottom-color: var(--color-primary);
+  outline: 2px solid transparent;
+}
+
+.change-word-page .change-word-input.correct-answer {
+  border-bottom-color: var(--color-success);
+}
+
+.change-word-page .change-word-input.wrong-answer {
+  border-bottom-color: var(--color-error);
+}
+
+.change-word-page .given-words {
+  display: block;
+  font-weight: 700;
+  margin-top: 3px;
+}
+
+.change-word-page .example-answer {
+  color: var(--color-success);
+  margin: 0 5px;
+}
+
+.exercise-page .example-label,
+.exercise-page .item-result {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  margin-top: 3px;
+}
+
+.exercise-page .example-label {
+  color: #666;
+}
+
+.change-sentence-page .change-sentence-list {
+  display: grid;
+  gap: 20px;
+  padding-left: 28px;
+}
+
+.change-sentence-page .change-sentence-item {
+  border-bottom: 1px solid var(--color-border);
+  padding: 0 4px 16px;
+}
+
+.change-sentence-page .change-sentence-item:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.change-sentence-page .original-sentence {
+  font-weight: 500;
+  margin-bottom: 7px;
+}
+
+.change-sentence-page .example-sentence {
+  color: var(--color-success);
+  font-weight: 700;
+}
+
+.change-sentence-page .change-sentence-input {
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  font: inherit;
+  padding: 8px;
+  width: 100%;
+}
+
+.change-sentence-page .change-sentence-input:focus {
+  border-color: var(--color-secondary);
+  outline: 2px solid rgba(41, 128, 185, 0.18);
+}
+
+.change-sentence-page .change-sentence-input.correct-answer {
+  border-color: var(--color-success);
+}
+
+.change-sentence-page .change-sentence-input.wrong-answer {
+  border-color: var(--color-error);
+}
+
 .adjective-page .container {
   max-width: 760px;
 }
@@ -513,6 +643,19 @@ body {
 }
 
 @media (max-width: 560px) {
+  .exercise-page .container {
+    padding: 10px;
+  }
+
+  .exercise-page .question-card {
+    padding: 14px 12px;
+  }
+
+  .change-word-input {
+    min-width: 135px;
+    width: 48%;
+  }
+
   .adjective-page .container {
     padding: 10px;
   }

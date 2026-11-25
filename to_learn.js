@@ -1,5 +1,10 @@
 //«Μπορείτε να το επαναλάβετε αργά, παρακαλώ;
 let current_card = 0
+// optional filter by label, e.g. verbs_to_learn.html?tag=maria
+const tagFilter = new URLSearchParams(window.location.search).get("tag");
+if (tagFilter) {
+  cards = cards.filter(card => (card.labels || []).includes(tagFilter));
+}
 personas = [
   "Εγώ",
   "Εσύ",
